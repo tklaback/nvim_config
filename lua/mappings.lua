@@ -21,3 +21,16 @@ map("n", "<C-k><C-k>", ":m .-2<CR>==", { desc = "Move line up" })
 -- Move line down with Ctrl + jj
 map("n", "<C-j><C-j>", ":m .+1<CR>==", { desc = "Move line down" })
 map("t", "<Esc>", "<C-\\><C-n>")
+
+
+map({ "n", "t" }, "<leader>tv", function()
+  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+end, { desc = "terminal toggleable vertical term" })
+
+map({ "n", "t" }, "<leader>tt", function()
+  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+end, { desc = "terminal new horizontal term" })
+
+map({ "n", "t" }, "<leader>ti", function()
+  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+end, { desc = "terminal toggle floating term" })
