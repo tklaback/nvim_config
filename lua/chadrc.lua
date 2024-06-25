@@ -13,4 +13,5 @@ M.ui = {
 	-- },
 }
 
+require("custom")
 return M
