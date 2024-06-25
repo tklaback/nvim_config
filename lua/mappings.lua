@@ -22,8 +22,5 @@ map("n", "<C-k><C-k>", ":m .-2<CR>==", { desc = "Move line up" })
 map("n", "<C-j><C-j>", ":m .+1<CR>==", { desc = "Move line down" })
 map("t", "<Esc>", "<C-\\><C-n>")
 
-
-
-
 vim.api.nvim_set_keymap('n', ';', ';', { noremap = true })
 
