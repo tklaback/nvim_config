@@ -13,5 +13,5 @@ M.ui = {
 	-- },
 }
 
-require("custom")
+require("lua.nvimtree")
 return M
