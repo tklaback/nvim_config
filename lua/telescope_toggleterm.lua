@@ -11,7 +11,6 @@ M.toggleterm_picker = function()
     return vim.bo[bufnr].filetype == 'toggleterm'
   end, vim.api.nvim_list_bufs())
 
-
   local opts = {}
   pickers.new(opts, {
     prompt_title = 'ToggleTerm Buffers',
@@ -20,19 +19,18 @@ M.toggleterm_picker = function()
       entry_maker = function(bufnr)
         local name = vim.api.nvim_buf_get_name(bufnr)
         return {
-          value = bufnrs,
+          value = bufnr,
           ordinal = name,
           display = name,
-          bufnr = bufnrs,
+          bufnr = bufnr,
         }
       end,
     },
     sorter = conf.generic_sorter(opts),
     attach_mappings = function(prompt_bufnr, map)
       local open_term = function()
-        local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
-        vim.api.nvim_set_current_buf(selection.bufnr)
+        vim.cmd("ToggleTerm direction=float")
       end
       map('i', '<CR>', open_term)
       map('n', '<CR>', open_term)
@@ -42,4 +40,3 @@ M.toggleterm_picker = function()
 end
 
 return M
-
