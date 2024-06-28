@@ -45,7 +45,7 @@ return {
     end
   },
   {
-    "ryanmsnyder/toggleterm-manager.nvim",
+    "tklaback/toggleterm-manager.nvim",
     dependencies = {
       "akinsho/nvim-toggleterm.lua",
       "nvim-telescope/telescope.nvim",
