@@ -14,22 +14,12 @@ local function exit_terminal(prompt_bufnr)
    end
    local bufnr = selection.value.bufnr
    local current_picker = actions_state.get_current_picker(prompt_bufnr)
-   current_picker:delete_selection(function(selection)
+   current_picker:delete_selection(function()
       vim.api.nvim_buf_delete(bufnr, { force = true })
    end)
 end
 
 local function create_term(prompt_bufnr)
-
-
-	local function on_open_terminal()
-		actions.close(prompt_bufnr)
-
-		-- the autocommand setup in telescope/init.lua that starts insert mode on leaving the telescope buffer
-		-- won't work here since the cursor may move to a non-toggleterm buftype for a brief moment while the
-		-- toggleterm buffer is being created
-		-- utils.start_insert_mode()
-	end
 
 	local term = Terminal:new({ hidden = true })
 
