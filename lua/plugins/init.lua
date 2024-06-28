@@ -21,7 +21,7 @@ return {
   	opts = {
   		ensure_installed = {
   			"lua-language-server", "stylua",
-  			"html-lsp", "css-lsp" , "prettier",
+ 			"html-lsp", "css-lsp" , "prettier",
         "solargraph", "pyright", "clangd",
   		},
   	},
@@ -37,11 +37,22 @@ return {
   	},
   },
   {
-    'akinsho/toggleterm.nvim',
+    'akinsho/nvim-toggleterm.lua',
     version = "*",
     lazy = false,
     config = function()
       require"configs.toggleterm"
+    end
+  },
+  {
+    "ryanmsnyder/toggleterm-manager.nvim",
+    dependencies = {
+      "akinsho/nvim-toggleterm.lua",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config=function ()
+     require("configs.toggleterm_manager")
     end
   }
 }

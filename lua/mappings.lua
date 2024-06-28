@@ -24,5 +24,5 @@ map("t", "<Esc>", "<C-\\><C-n>")
 
 map('n', ';', ';', { noremap = true })
 
-map('n', '<leader>ft', '<cmd>lua require("telescope_toggleterm").terminal_picker()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ft', ":Telescope toggleterm_manager<CR>", { noremap = true, silent = true })
 
