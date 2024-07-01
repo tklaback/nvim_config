@@ -1,7 +1,6 @@
 local M = {}
 
 M.dap = {
-  plugin = true,
   n = {
     ["<leader>db"] = {
       "<cmd> DapToggleBreakpoint <CR>",
@@ -9,9 +8,9 @@ M.dap = {
     },
     ["<leader>dr"] = {
       "<cmd> DapContinue <CR>",
-      "Start or continue the debugger"
-    }
-  }
+      "Start or continue the debugger",
+    },
+  },
 }
 
 return M

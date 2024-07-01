@@ -67,6 +67,7 @@ return {
         "css-lsp",
         "prettier",
         "solargraph",
+        "rubocop",
         "pyright",
         "clangd",
         "clang-format",
