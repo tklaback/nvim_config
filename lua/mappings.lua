@@ -22,10 +22,17 @@ map("n", "<C-k><C-k>", ":m .-2<CR>==", { desc = "Move line up" })
 map("n", "<C-j><C-j>", ":m .+1<CR>==", { desc = "Move line down" })
 map("t", "<Esc>", "<C-\\><C-n>")
 
-map('n', ';', ';', { noremap = true })
+map("n", ";", ";", { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<leader>ft', ":Telescope toggleterm_manager<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ft", ":Telescope toggleterm_manager<CR>", { noremap = true, silent = true })
 
+-- map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
+-- map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Start or continue the debugger" })
 
-map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
-map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Start or continue the debugger" })
+-- Load dap_mappings
+local dap_mappings = require "configs.dap_mappings"
+
+-- Apply dap mappings
+for mode, mappings in pairs(dap_mappings.dap.n) do
+  map("n", mode, mappings[1], { desc = mappings[2] })
+end
