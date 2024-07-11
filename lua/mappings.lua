@@ -38,3 +38,11 @@ mapping_utils.apply_mappings(dap_mappings)
 
 -- Apply buffer mappings
 mapping_utils.apply_mappings(buffer_mappings)
+
+-- wrap a word in quotes
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>q",
+  ':lua require("common.utils").wrap_in_quotes()<CR>',
+  { noremap = true, silent = true }
+)

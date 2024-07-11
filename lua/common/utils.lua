@@ -17,4 +17,9 @@ function M.CloseBuffersExcept(excluded_filetypes)
   end
 end
 
+function M.wrap_in_quotes()
+  local word = vim.fn.expand "<cword>"
+  vim.cmd('normal! ciw"' .. word .. '"')
+end
+
 return M
