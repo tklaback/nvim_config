@@ -11,15 +11,37 @@ M.ui = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
   -- },
+  --
+  statusline = {
+    separator_style = "arrow",
+  },
+
+  tabufline = {
+    enabled = true,
+    lazyload = false,
+    order = { "treeOffset", "buffers", "tabs", "btns" },
+    modules = nil,
+  },
+  cheatsheet = {
+    theme = "grid", -- simple/grid
+    excluded_groups = {}, -- can add group name or with mode
+  },
 }
 
 -- Reload the buffer when the file changes outside of Neovim
+vim.o.autoread = true
+
+-- Automatically check for file changes on certain events
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  pattern = "*",
   callback = function()
-    if vim.fn.getcmdwintype() == "" then
-      vim.cmd "checktime"
-    end
+    vim.cmd "checktime"
+  end,
+})
+
+-- Notification after file change
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  callback = function()
+    vim.api.nvim_echo({ { "File changed on disk. Buffer reloaded.", "WarningMsg" } }, true, {})
   end,
 })
 
