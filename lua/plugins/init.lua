@@ -1,5 +1,9 @@
 return {
   {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
     config = function()
@@ -72,6 +76,7 @@ return {
         "clangd",
         "clang-format",
         "codelldb",
+        "typescript-language-server",
       },
     },
   },
@@ -86,6 +91,8 @@ return {
         "html",
         "css",
         "ruby",
+        "json",
+        "jsonc",
       },
     },
   },
