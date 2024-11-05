@@ -79,6 +79,7 @@ return {
         "typescript-language-server",
       },
     },
+    automatic_installation = true,
   },
 
   {
